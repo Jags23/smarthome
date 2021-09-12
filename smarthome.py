@@ -43,4 +43,4 @@ u = Updater(bot_token,use_context=True)
 dp = u.dispatcher
 dp.add_handler(MessageHandler(Filters.text,main))
 u.start_polling()
-u.idle() 
+u.idle()  
