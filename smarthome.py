@@ -1,6 +1,6 @@
 from telegram.ext import Updater, MessageHandler, Filters
 from Adafruit_IO import Client
-aio=Client('JagadeepT','aio_FUQz846A8YL8LOiOeTPnZVLa9ckz')
+aio=Client('client_name','client_api')
 
 def light_on(bot,update):
   chat_id = bot.message.chat_id
@@ -36,7 +36,7 @@ def main(bot,update):
   if a=='turn off the fan':
     fan_off(bot,update)
 
-bot_token = '1990968251:AAFQ3v0DAO0FACXlVb358ZOuW0jlnKN9mEs'
+bot_token = 'chatbot_api'
 u = Updater(bot_token,use_context=True)
 dp = u.dispatcher
 dp.add_handler(MessageHandler(Filters.text,main))
