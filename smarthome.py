@@ -2,7 +2,10 @@ pip install adafruit-io
 pip install python-telegram-bot==13.0 
 from telegram.ext import Updater, MessageHandler, Filters
 from Adafruit_IO import Client
-aio=Client('client_name','client_api')
+client_name='JagadeepT'
+client_api='aio_gDkz94xRP7XPR7CwESQGuMIDkyYv'
+
+aio=Client(client_name,client_api)
 
 def light_on(bot,update):
   chat_id = bot.message.chat_id
@@ -38,9 +41,9 @@ def main(bot,update):
   if a=='turn off the fan':
     fan_off(bot,update)
 
-bot_token = 'chatbot_api'
+bot_token = '1990968251:AAFQ3v0DAO0FACXlVb358ZOuW0jlnKN9mEs'
 u = Updater(bot_token,use_context=True)
 dp = u.dispatcher
 dp.add_handler(MessageHandler(Filters.text,main))
 u.start_polling()
-u.idle()  
+u.idle()
