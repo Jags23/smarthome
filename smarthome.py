@@ -1,0 +1,44 @@
+from telegram.ext import Updater, MessageHandler, Filters
+from Adafruit_IO import Client
+aio=Client('JagadeepT','aio_FUQz846A8YL8LOiOeTPnZVLa9ckz')
+
+def light_on(bot,update):
+  chat_id = bot.message.chat_id
+  bot.message.reply_text('turning on immediately!')
+  aio.send('smart-home-major-project',1)
+
+def light_off(bot,update):
+   chat_id = bot.message.chat_id
+   bot.message.reply_text('Yeah sure,turning off the lights')
+   aio.send('smart-home-major-project',0)
+
+def fan_on(bot,update):
+  chat_id = bot.message.chat_id
+  bot.message.reply_text('Fan is ON')
+  aio.send('smart-home-fan',1)
+
+def fan_off(bot,update):
+  chat_id = bot.message.chat_id
+  bot.message.reply_text('Fan is OFF')
+  aio.send('smart-home-fan',0)
+
+def main(bot,update):
+  a= bot.message.text
+  if a =="turn on the lights":
+    light_on(bot,update)
+
+  if a=='turn off the lights':
+    light_off(bot,update)
+
+  if a=='turn on the fan':
+    fan_on(bot,update)
+
+  if a=='turn off the fan':
+    fan_off(bot,update)
+
+bot_token = '1990968251:AAFQ3v0DAO0FACXlVb358ZOuW0jlnKN9mEs'
+u = Updater(bot_token,use_context=True)
+dp = u.dispatcher
+dp.add_handler(MessageHandler(Filters.text,main))
+u.start_polling()
+u.idle()
