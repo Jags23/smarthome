@@ -1,1 +1,1 @@
-worker: python smarthome.py
+worker: python smarthome.py 
