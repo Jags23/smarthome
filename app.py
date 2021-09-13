@@ -47,6 +47,6 @@ def main(bot,update):
 bot_token =os.getenv('bot_token')
 u = Updater(bot_token,use_context=True)
 dp = u.dispatcher
-dp.add_handler(MessageHandler(Filters.text,main))
+dp.add_handler(MessageHandler(Filters.text,main)) 
 u.start_polling()
 u.idle() 
