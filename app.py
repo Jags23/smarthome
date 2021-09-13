@@ -40,7 +40,7 @@ def main(bot,update):
     fan_on(bot,update)
 
   if a=='turn off the fan':
-    fan_off(bot,update)
+    fan_off(bot,update) 
 
 bot_token =os.getenv('bot_token')
 u = Updater(bot_token,use_context=True)
